@@ -4,11 +4,16 @@ import { useMemo } from 'react';
 
 import 'react-native-gesture-handler';
 
-import Navigation from './navigation';
+import { WorkoutProvider } from '@/context/WorkoutContext';
+import Navigation from '@/navigation';
 
 export default function App() {
   const colorScheme = useColorScheme();
   const theme = useMemo(() => (colorScheme === 'dark' ? DarkTheme : DefaultTheme), [colorScheme]);
 
-  return <Navigation theme={theme} />;
+  return (
+    <WorkoutProvider>
+      <Navigation theme={theme} />
+    </WorkoutProvider>
+  );
 }

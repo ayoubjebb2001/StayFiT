@@ -1,28 +1,33 @@
 import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { BackButton } from '../components/BackButton';
-import Home from 'screens/Home';
-import AddWorkout from 'screens/AddWorkout';
-import WorkoutDetails from 'screens/WorkoutDetails';
 
+import { BackButton } from '@/components/BackButton';
+import AddWorkoutScreen from '@/screens/AddWorkoutScreen';
+import HomeScreen from '@/screens/HomeScreen';
+import WorkoutDetailsScreen from '@/screens/WorkoutDetailsScreen';
 
 const Stack = createStackNavigator({
   screens: {
     Home: {
-      screen: Home,
+      screen: HomeScreen,
+      options: {
+        title: 'My Workouts',
+      },
     },
     AddWorkout: {
-      screen: AddWorkout,
+      screen: AddWorkoutScreen,
       options: ({ navigation }) => ({
+        title: 'Add Workout',
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
       }),
     },
     WorkoutDetails: {
-      screen: WorkoutDetails,
+      screen: WorkoutDetailsScreen,
       options: ({ navigation }) => ({
+        title: 'Workout Details',
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
       }),
-    }
+    },
   },
 });
 
@@ -36,4 +41,5 @@ declare global {
 }
 
 const Navigation = createStaticNavigation(Stack);
+
 export default Navigation;
