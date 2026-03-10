@@ -1,20 +1,28 @@
 import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Overview from '../screens/overview';
-import Details from '../screens/details';
 import { BackButton } from '../components/BackButton';
+import Home from 'screens/Home';
+import AddWorkout from 'screens/AddWorkout';
+import WorkoutDetails from 'screens/WorkoutDetails';
+
 
 const Stack = createStackNavigator({
   screens: {
-    Overview: {
-      screen: Overview,
+    Home: {
+      screen: Home,
     },
-    Details: {
-      screen: Details,
+    AddWorkout: {
+      screen: AddWorkout,
       options: ({ navigation }) => ({
         headerLeft: () => <BackButton onPress={navigation.goBack} />,
       }),
     },
+    WorkoutDetails: {
+      screen: WorkoutDetails,
+      options: ({ navigation }) => ({
+        headerLeft: () => <BackButton onPress={navigation.goBack} />,
+      }),
+    }
   },
 });
 

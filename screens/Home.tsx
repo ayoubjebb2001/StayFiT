@@ -5,19 +5,23 @@ import { StyleSheet, View } from 'react-native';
 
 import { Button } from '../components/Button';
 
-export default function Overview() {
+export default function Home() {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <ScreenContent path="screens/overview.tsx" title="Overview"></ScreenContent>
+      <ScreenContent path="screens/Home.tsx" title="Home"></ScreenContent>
       <Button
         onPress={() =>
-          navigation.navigate('Details', {
-            name: 'Dan',
-          })
+          navigation.navigate('AddWorkout')
         }
-        title="Show Details"
+        title="Add Workout"
+      />
+      <Button
+        onPress={() =>
+          navigation.navigate('WorkoutDetails')
+        }
+        title="View Workouts"
       />
     </View>
   );
